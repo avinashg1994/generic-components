@@ -1,4 +1,4 @@
-import { Component, h, Prop } from '@stencil/core';
+import { Component, h, Prop, Watch } from '@stencil/core';
 
 @Component({
   tag: 'generic-table',
@@ -6,17 +6,46 @@ import { Component, h, Prop } from '@stencil/core';
   shadow: true,
 })
 export class Table {
-  @Prop() tableData!: Array<object>;
-  @Prop() columnHeadings!: Array<string>;
+  @Prop() tableData!: Array<object> | string;
+  @Prop() columnHeadings!: Array<string> | string;
   @Prop() title!: string;
 
+  private _tableData: Array<object>
+  @Watch('tableData')
+  tableDataWatcher(newValue: Array<object> | string) {
+    if (typeof newValue === 'string') {
+       this._tableData = JSON.parse(newValue);
+    } else {
+      this._tableData = newValue;
+    }
+  }
+
+  private _columnHeadings: Array<string>
+  @Watch('columnHeadings')
+  columnHeadingsWatcher(newValue: Array<string> | string) {
+    if (typeof newValue === 'string') {
+      this._columnHeadings = newValue.match(/'[a-zA-Z0-9 ]+'/g);
+      const filterArray = (item, index, arr) => {
+        arr[index] = item.substring(1,item.length-1);
+      };
+      this._columnHeadings.forEach(filterArray)
+    } else {
+      this._columnHeadings = newValue;
+    }
+  }
+  
+  componentWillLoad() {
+    this.tableDataWatcher(this.tableData);
+    this.columnHeadingsWatcher(this.columnHeadings);
+  }
+
   render() {
-    const data = this.tableData?.map((row, index) => {
+    const data = this._tableData?.map((row, index) => {
       let rowData = [];
       let i = 0;
       for (const key in row) {
         rowData.push({
-          key: this.columnHeadings[i],
+          key: this._columnHeadings[i],
           val: row[key]
         })
       }
@@ -36,7 +65,7 @@ export class Table {
         <table class="table">
           <thead>
             <tr>
-              {this.columnHeadings?.map((col, index) => (
+              {this._columnHeadings?.map((col, index) => (
                 <th key={index}>{col}</th>
               ))}
             </tr>

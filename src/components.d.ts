@@ -7,8 +7,8 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface GenericTable {
-        "columnHeadings": Array<string>;
-        "tableData": Array<object>;
+        "columnHeadings": Array<string> | string;
+        "tableData": Array<object> | string;
         "title": string;
     }
     interface MyComponent {
@@ -46,8 +46,8 @@ declare global {
 }
 declare namespace LocalJSX {
     interface GenericTable {
-        "columnHeadings": Array<string>;
-        "tableData": Array<object>;
+        "columnHeadings": Array<string> | string;
+        "tableData": Array<object> | string;
         "title": string;
     }
     interface MyComponent {
