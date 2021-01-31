@@ -9,6 +9,13 @@
     <script nomodule src="/build/generic-components.js"></script>
   </head>
   <body>
-    <my-component first="Stencil" last="'Don't call me a framework' JS"></my-component>
+    <div>
+      <h1>Generic Table Component</h1>
+      <generic-table 
+        table-data='[{"name": "Spa-Francorchamps", "country": "Belgium", "length": "7.004", "numberOfLaps": "44"}, {"name": "Circuit de Monaco", "country": "Monaco", "length": "3.337", "numberOfLaps": "78"}, {"name": "Silverstone", "country": "England", "length": "5.891", "numberOfLaps": "52"}]'
+        column-headings="['Name', 'Country', 'Length', 'Number of laps']"
+        title="Top F1 tracks"
+      ></generic-table>
+    </div>
   </body>
 </html>
