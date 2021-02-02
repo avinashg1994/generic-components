@@ -6,75 +6,51 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface CompanyHeader {
+    }
     interface GenericTable {
         "columnHeadings": Array<string> | string;
         "tableData": Array<object> | string;
         "title": string;
     }
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
-    }
 }
 declare global {
+    interface HTMLCompanyHeaderElement extends Components.CompanyHeader, HTMLStencilElement {
+    }
+    var HTMLCompanyHeaderElement: {
+        prototype: HTMLCompanyHeaderElement;
+        new (): HTMLCompanyHeaderElement;
+    };
     interface HTMLGenericTableElement extends Components.GenericTable, HTMLStencilElement {
     }
     var HTMLGenericTableElement: {
         prototype: HTMLGenericTableElement;
         new (): HTMLGenericTableElement;
     };
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
-    }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
-    };
     interface HTMLElementTagNameMap {
+        "company-header": HTMLCompanyHeaderElement;
         "generic-table": HTMLGenericTableElement;
-        "my-component": HTMLMyComponentElement;
     }
 }
 declare namespace LocalJSX {
+    interface CompanyHeader {
+    }
     interface GenericTable {
         "columnHeadings": Array<string> | string;
         "tableData": Array<object> | string;
         "title": string;
     }
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
-    }
     interface IntrinsicElements {
+        "company-header": CompanyHeader;
         "generic-table": GenericTable;
-        "my-component": MyComponent;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "company-header": LocalJSX.CompanyHeader & JSXBase.HTMLAttributes<HTMLCompanyHeaderElement>;
             "generic-table": LocalJSX.GenericTable & JSXBase.HTMLAttributes<HTMLGenericTableElement>;
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
         }
     }
 }

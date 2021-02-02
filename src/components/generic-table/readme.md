@@ -7,12 +7,11 @@
 
 ## Properties
 
-| Property                      | Attribute  | Description | Type                             | Default     |
-| ----------------------------- | ---------- | ----------- | -------------------------------- | ----------- |
-| `breakOn`                     | `break-on` |             | `"large" \| "medium" \| "small"` | `undefined` |
-| `columnHeadings` _(required)_ | --         |             | `string[]`                       | `undefined` |
-| `tableData` _(required)_      | --         |             | `object[]`                       | `undefined` |
-| `title` _(required)_          | `title`    |             | `string`                         | `undefined` |
+| Property                      | Attribute         | Description | Type                 | Default     |
+| ----------------------------- | ----------------- | ----------- | -------------------- | ----------- |
+| `columnHeadings` _(required)_ | `column-headings` |             | `string \| string[]` | `undefined` |
+| `tableData` _(required)_      | `table-data`      |             | `object[] \| string` | `undefined` |
+| `title` _(required)_          | `title`           |             | `string`             | `undefined` |
 
 
 ----------------------------------------------
