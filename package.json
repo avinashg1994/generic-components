@@ -25,5 +25,8 @@
     "@stencil/core": "^2.0.1",
     "swiper": "^6.4.10"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@rollup/plugin-json": "^4.1.0"
+  }
 }

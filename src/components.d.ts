@@ -7,6 +7,7 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface CompanyHeader {
+        "headerConfig": string;
     }
     interface GenericTable {
         "columnHeadings": Array<string> | string;
@@ -34,6 +35,7 @@ declare global {
 }
 declare namespace LocalJSX {
     interface CompanyHeader {
+        "headerConfig": string;
     }
     interface GenericTable {
         "columnHeadings": Array<string> | string;
