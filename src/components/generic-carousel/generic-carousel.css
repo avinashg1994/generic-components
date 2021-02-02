@@ -1,0 +1,37 @@
+@import url("https://unpkg.com/swiper/swiper-bundle.min.css");
+@import url("https://unpkg.com/swiper/swiper-bundle.css");
+/* .carousel-container {
+  border: 2px solid #000;
+  margin: 0 auto;
+  width: 742px;
+  display: flex;
+  align-items: center;
+}
+
+.carousel-content {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.arrow-button {
+  height: 100%;
+  display: flex;
+  cursor: pointer;
+} */
+.swiper-container {
+  width: 800px;
+  height: 200px;
+} 
+
+.swiper-slide {
+  background-color: grey;
+}
+
+.blue {
+ background-color: grey;
+}
+
+.red {
+ background-color: grey;
+}

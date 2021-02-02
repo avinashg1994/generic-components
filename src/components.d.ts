@@ -9,6 +9,8 @@ export namespace Components {
     interface CompanyHeader {
         "headerConfig": string;
     }
+    interface GenericCarousel {
+    }
     interface GenericTable {
         "columnHeadings": Array<string> | string;
         "tableData": Array<object> | string;
@@ -22,6 +24,12 @@ declare global {
         prototype: HTMLCompanyHeaderElement;
         new (): HTMLCompanyHeaderElement;
     };
+    interface HTMLGenericCarouselElement extends Components.GenericCarousel, HTMLStencilElement {
+    }
+    var HTMLGenericCarouselElement: {
+        prototype: HTMLGenericCarouselElement;
+        new (): HTMLGenericCarouselElement;
+    };
     interface HTMLGenericTableElement extends Components.GenericTable, HTMLStencilElement {
     }
     var HTMLGenericTableElement: {
@@ -30,12 +38,15 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "company-header": HTMLCompanyHeaderElement;
+        "generic-carousel": HTMLGenericCarouselElement;
         "generic-table": HTMLGenericTableElement;
     }
 }
 declare namespace LocalJSX {
     interface CompanyHeader {
         "headerConfig": string;
+    }
+    interface GenericCarousel {
     }
     interface GenericTable {
         "columnHeadings": Array<string> | string;
@@ -44,6 +55,7 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "company-header": CompanyHeader;
+        "generic-carousel": GenericCarousel;
         "generic-table": GenericTable;
     }
 }
@@ -52,6 +64,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "company-header": LocalJSX.CompanyHeader & JSXBase.HTMLAttributes<HTMLCompanyHeaderElement>;
+            "generic-carousel": LocalJSX.GenericCarousel & JSXBase.HTMLAttributes<HTMLGenericCarouselElement>;
             "generic-table": LocalJSX.GenericTable & JSXBase.HTMLAttributes<HTMLGenericTableElement>;
         }
     }

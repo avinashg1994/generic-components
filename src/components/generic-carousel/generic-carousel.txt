@@ -1,0 +1,43 @@
+// Other approach
+
+import { Component, h } from '@stencil/core';
+import leftArrow from './assets/iconmonstr-arrow-64.svg';
+import rightArrow from './assets/iconmonstr-arrow-63.svg';
+
+@Component({
+  tag: 'generic-carousel',
+  styleUrl: 'generic-carousel.css',
+  shadow: true,
+})
+export class GenericCarousel {
+  private contentDiv : HTMLElement;
+  private contentDivWidth : number;
+  componentDidLoad() {
+    this.contentDivWidth = this.contentDiv.getBoundingClientRect().width;
+  }
+  
+  leftArrowOnClickHandler(event) {
+    alert("Left Clicked");
+  }
+
+  rightArrowOnClickHandler(event) {
+    alert("Right Clicked");
+  }
+
+  render() {
+    return (
+      <div class="carousel-container">
+        <div class="arrow-button" onClick={this.leftArrowOnClickHandler}>
+          <img src={leftArrow} alt="left arrow" />
+        </div>
+        <div class="carousel-content" ref={node => this.contentDiv = node}>
+          <slot></slot>
+        </div>
+        <div class="arrow-button" onClick={this.rightArrowOnClickHandler}>
+          <img src={rightArrow} alt="right arrow" />
+        </div>
+      </div>
+    );
+  }
+
+}
